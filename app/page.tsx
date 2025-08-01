@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import {
   Card,
@@ -146,6 +148,31 @@ const upcomingEvents = [
 ];
 
 export default function Home() {
+  const scrollToEvents = () => {
+    try {
+      const eventsSection = document.getElementById("events-section");
+      if (eventsSection) {
+        eventsSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      } else {
+        // Fallback: scroll to top of page
+        window.scrollTo({
+          top: window.innerHeight,
+          behavior: "smooth",
+        });
+      }
+    } catch (error) {
+      console.log("Scroll error:", error);
+      // Fallback: scroll to top of page
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div className='min-h-screen'>
       {/* Hero Section with Background Image */}
@@ -162,14 +189,20 @@ export default function Home() {
             Building inclusive communities through understanding, respect, and
             shared experiences
           </p>
-          <button className='bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-3 rounded-lg hover:bg-white/30 transition-all duration-300 animate-fade-in-up delay-400'>
+          <button
+            onClick={scrollToEvents}
+            className='bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-3 rounded-lg hover:bg-white/30 transition-all duration-300 animate-fade-in-up delay-400 cursor-pointer'
+          >
             Explore Our Events
           </button>
         </div>
       </div>
 
       {/* Our Events Section */}
-      <div className='min-h-screen bg-gradient-to-b from-background to-background/95 p-8'>
+      <div
+        id='events-section'
+        className='min-h-screen bg-gradient-to-b from-background to-background/95 p-8'
+      >
         <div className='max-w-7xl mx-auto'>
           <div className='text-center mb-12 animate-fade-in-up'>
             <h2 className='text-5xl font-bold text-foreground mb-4 text-glow'>
