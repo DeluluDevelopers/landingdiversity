@@ -150,15 +150,15 @@ export default function Home() {
     <div>
       {/* Hero Section with Background Image */}
       <div
-        className='min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat'
+        className='min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat animate-fade-in'
         style={{ backgroundImage: "url(/bg.webp)" }}
       ></div>
 
       {/* Our Events Section */}
       <div className='min-h-screen bg-background p-8'>
         <div className='max-w-7xl mx-auto'>
-          <div className='text-center mb-12'>
-            <h1 className='text-4xl font-bold text-foreground mb-4'>
+          <div className='text-center mb-12 animate-fade-in-up'>
+            <h1 className='text-4xl font-bold text-foreground mb-4 text-glow'>
               Our Events
             </h1>
             <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
@@ -168,37 +168,39 @@ export default function Home() {
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {events.map((event) => (
+            {events.map((event, index) => (
               <Card
                 key={event.id}
-                className='hover:shadow-lg transition-shadow duration-300 bg-card/80'
+                className={`hover:shadow-lg transition-shadow duration-300 bg-card/80 animate-fade-in-up delay-${
+                  (index + 1) * 100
+                } card-hover`}
               >
                 <CardHeader>
-                  <CardTitle>{event.title}</CardTitle>
+                  <CardTitle className='text-glow'>{event.title}</CardTitle>
                   <CardDescription>{event.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className='space-y-3'>
                     <div className='flex items-center gap-2'>
-                      <span className='text-blue-600'>📅</span>
+                      <span className='text-blue-600 icon-bounce'>📅</span>
                       <span className='text-sm text-muted-foreground'>
                         {event.date}
                       </span>
                     </div>
                     <div className='flex items-center gap-2'>
-                      <span className='text-blue-600'>🕒</span>
+                      <span className='text-blue-600 icon-bounce'>🕒</span>
                       <span className='text-sm text-muted-foreground'>
                         {event.time}
                       </span>
                     </div>
                     <div className='flex items-center gap-2'>
-                      <span className='text-blue-600'>📍</span>
+                      <span className='text-blue-600 icon-bounce'>📍</span>
                       <span className='text-sm text-muted-foreground'>
                         {event.location}
                       </span>
                     </div>
                     <div className='pt-2'>
-                      <span className='inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent text-accent-foreground'>
+                      <span className='inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent text-accent-foreground hover-scale'>
                         {event.category}
                       </span>
                     </div>
@@ -213,8 +215,8 @@ export default function Home() {
       {/* Upcoming Events Section */}
       <div className='min-h-screen bg-background p-8'>
         <div className='max-w-7xl mx-auto'>
-          <div className='text-center mb-12'>
-            <h1 className='text-4xl font-bold text-foreground mb-4'>
+          <div className='text-center mb-12 animate-fade-in-up delay-200'>
+            <h1 className='text-4xl font-bold text-foreground mb-4 text-glow'>
               Upcoming Events
             </h1>
             <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
@@ -224,49 +226,51 @@ export default function Home() {
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {upcomingEvents.map((event) => (
+            {upcomingEvents.map((event, index) => (
               <Card
                 key={event.id}
-                className='hover:shadow-lg transition-shadow duration-300 bg-card/80'
+                className={`hover:shadow-lg transition-shadow duration-300 bg-card/80 animate-fade-in-up delay-${
+                  (index + 3) * 100
+                } card-hover`}
               >
                 <CardHeader>
-                  <CardTitle>{event.title}</CardTitle>
+                  <CardTitle className='text-glow'>{event.title}</CardTitle>
                   <CardDescription>{event.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className='space-y-3'>
                     <div className='flex items-center gap-2'>
-                      <span className='text-blue-600'>📅</span>
+                      <span className='text-blue-600 icon-bounce'>📅</span>
                       <span className='text-sm text-muted-foreground'>
                         {event.date}
                       </span>
                     </div>
                     <div className='flex items-center gap-2'>
-                      <span className='text-blue-600'>🕒</span>
+                      <span className='text-blue-600 icon-bounce'>🕒</span>
                       <span className='text-sm text-muted-foreground'>
                         {event.time}
                       </span>
                     </div>
                     <div className='flex items-center gap-2'>
-                      <span className='text-blue-600'>📍</span>
+                      <span className='text-blue-600 icon-bounce'>📍</span>
                       <span className='text-sm text-muted-foreground'>
                         {event.location}
                       </span>
                     </div>
                     <div className='flex items-center gap-2'>
-                      <span className='text-orange-600'>⏰</span>
+                      <span className='text-orange-600 icon-bounce'>⏰</span>
                       <span className='text-sm text-muted-foreground'>
                         Register by: {event.registrationDeadline}
                       </span>
                     </div>
                     <div className='flex items-center gap-2'>
-                      <span className='text-green-600'>👥</span>
+                      <span className='text-green-600 icon-bounce'>👥</span>
                       <span className='text-sm text-muted-foreground'>
                         {event.capacity}
                       </span>
                     </div>
                     <div className='pt-2'>
-                      <span className='inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent text-accent-foreground'>
+                      <span className='inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent text-accent-foreground hover-scale'>
                         {event.category}
                       </span>
                     </div>
@@ -281,8 +285,8 @@ export default function Home() {
       {/* Our Mission Section */}
       <div className='bg-background pt-8 pb-16 pl-8 pr-8'>
         <div className='max-w-7xl mx-auto'>
-          <div className='text-center mb-12'>
-            <h1 className='text-4xl font-bold text-foreground mb-4'>
+          <div className='text-center mb-12 animate-fade-in-up delay-400'>
+            <h1 className='text-4xl font-bold text-foreground mb-4 text-glow'>
               Our Mission
             </h1>
             <p className='text-lg text-muted-foreground max-w-3xl mx-auto'>
@@ -294,9 +298,9 @@ export default function Home() {
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
-            <div className='text-center'>
-              <div className='text-4xl mb-4'>🤝</div>
-              <h3 className='text-xl font-bold text-foreground mb-2'>
+            <div className='text-center animate-slide-in-left delay-500'>
+              <div className='text-4xl mb-4 animate-float'>🤝</div>
+              <h3 className='text-xl font-bold text-foreground mb-2 text-glow'>
                 Inclusivity
               </h3>
               <p className='text-muted-foreground'>
@@ -304,9 +308,9 @@ export default function Home() {
                 and can thrive.
               </p>
             </div>
-            <div className='text-center'>
-              <div className='text-4xl mb-4'>🌍</div>
-              <h3 className='text-xl font-bold text-foreground mb-2'>
+            <div className='text-center animate-fade-in-up delay-600'>
+              <div className='text-4xl mb-4 animate-float'>🌍</div>
+              <h3 className='text-xl font-bold text-foreground mb-2 text-glow'>
                 Cultural Awareness
               </h3>
               <p className='text-muted-foreground'>
@@ -314,9 +318,9 @@ export default function Home() {
                 backgrounds, and perspectives.
               </p>
             </div>
-            <div className='text-center'>
-              <div className='text-4xl mb-4'>💡</div>
-              <h3 className='text-xl font-bold text-foreground mb-2'>
+            <div className='text-center animate-slide-in-right delay-500'>
+              <div className='text-4xl mb-4 animate-float'>💡</div>
+              <h3 className='text-xl font-bold text-foreground mb-2 text-glow'>
                 Education
               </h3>
               <p className='text-muted-foreground'>
@@ -331,8 +335,8 @@ export default function Home() {
       {/* Contact Us Section */}
       <div className='bg-background pt-8 pb-16 pl-8 pr-8'>
         <div className='max-w-7xl mx-auto'>
-          <div className='text-center mb-12'>
-            <h1 className='text-4xl font-bold text-foreground mb-4'>
+          <div className='text-center mb-12 animate-fade-in-up delay-600'>
+            <h1 className='text-4xl font-bold text-foreground mb-4 text-glow'>
               Contact Us
             </h1>
             <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
@@ -342,9 +346,11 @@ export default function Home() {
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
-            <Card className='hover:shadow-lg transition-shadow duration-300 bg-card/80'>
+            <Card className='hover:shadow-lg transition-shadow duration-300 bg-card/80 card-hover animate-fade-in-up delay-700'>
               <CardHeader>
-                <CardTitle className='text-center'>📧 Email</CardTitle>
+                <CardTitle className='text-center text-glow'>
+                  📧 Email
+                </CardTitle>
               </CardHeader>
               <CardContent className='text-center'>
                 <p className='text-muted-foreground'>info@diversityclub.org</p>
@@ -354,9 +360,11 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className='hover:shadow-lg transition-shadow duration-300 bg-card/80'>
+            <Card className='hover:shadow-lg transition-shadow duration-300 bg-card/80 card-hover animate-fade-in-up delay-800'>
               <CardHeader>
-                <CardTitle className='text-center'>📱 Phone</CardTitle>
+                <CardTitle className='text-center text-glow'>
+                  📱 Phone
+                </CardTitle>
               </CardHeader>
               <CardContent className='text-center'>
                 <p className='text-muted-foreground'>+1 (555) 123-4567</p>
@@ -366,9 +374,11 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className='hover:shadow-lg transition-shadow duration-300 bg-card/80'>
+            <Card className='hover:shadow-lg transition-shadow duration-300 bg-card/80 card-hover animate-fade-in-up delay-900'>
               <CardHeader>
-                <CardTitle className='text-center'>📍 Address</CardTitle>
+                <CardTitle className='text-center text-glow'>
+                  📍 Address
+                </CardTitle>
               </CardHeader>
               <CardContent className='text-center'>
                 <p className='text-muted-foreground'>123 Diversity Street</p>
@@ -379,9 +389,11 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className='hover:shadow-lg transition-shadow duration-300 bg-card/80'>
+            <Card className='hover:shadow-lg transition-shadow duration-300 bg-card/80 card-hover animate-fade-in-up delay-1000'>
               <CardHeader>
-                <CardTitle className='text-center'>🌐 Social Media</CardTitle>
+                <CardTitle className='text-center text-glow'>
+                  🌐 Social Media
+                </CardTitle>
               </CardHeader>
               <CardContent className='text-center'>
                 <p className='text-muted-foreground'>@DiversityClub</p>
