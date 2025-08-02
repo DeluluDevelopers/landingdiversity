@@ -229,7 +229,7 @@ export default function Home() {
                     (index + 1) * 100
                   } card-hover`}
                   style={{
-                    background: "rgba(255, 255, 255, 0.15)",
+                    background: "rgba(255, 255, 255, 0.25)",
                     backdropFilter: "blur(20px)",
                     WebkitBackdropFilter: "blur(20px)",
                     border: "1px solid rgba(255, 255, 255, 0.3)",
@@ -240,41 +240,41 @@ export default function Home() {
                   }}
                 >
                   <CardHeader className='pb-3'>
-                    <CardTitle className='text-glow text-xl text-white font-bold drop-shadow-md'>
+                    <CardTitle className='text-glow text-xl text-white font-bold text-shadow-lg'>
                       {event.title}
                     </CardTitle>
-                    <CardDescription className='text-white/90 leading-relaxed font-medium drop-shadow-sm'>
+                    <CardDescription className='text-white font-semibold leading-relaxed text-shadow-md'>
                       {event.description}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className='space-y-3'>
                       <div className='flex items-center gap-3'>
-                        <span className='text-blue-200 icon-bounce text-lg drop-shadow-sm'>
+                        <span className='text-blue-200 icon-bounce text-lg text-shadow-sm'>
                           📅
                         </span>
-                        <span className='text-sm text-white/95 font-medium drop-shadow-sm'>
+                        <span className='text-sm text-white font-semibold text-shadow-sm'>
                           {event.date}
                         </span>
                       </div>
                       <div className='flex items-center gap-3'>
-                        <span className='text-blue-200 icon-bounce text-lg drop-shadow-sm'>
+                        <span className='text-blue-200 icon-bounce text-lg text-shadow-sm'>
                           🕒
                         </span>
-                        <span className='text-sm text-white/95 font-medium drop-shadow-sm'>
+                        <span className='text-sm text-white font-semibold text-shadow-sm'>
                           {event.time}
                         </span>
                       </div>
                       <div className='flex items-center gap-3'>
-                        <span className='text-blue-200 icon-bounce text-lg drop-shadow-sm'>
+                        <span className='text-blue-200 icon-bounce text-lg text-shadow-sm'>
                           📍
                         </span>
-                        <span className='text-sm text-white/95 font-medium drop-shadow-sm'>
+                        <span className='text-sm text-white font-semibold text-shadow-sm'>
                           {event.location}
                         </span>
                       </div>
                       <div className='pt-2'>
-                        <span className='inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-white/20 text-white hover-scale glass-border drop-shadow-sm'>
+                        <span className='inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-white/30 text-white hover-scale glass-border text-shadow-sm'>
                           {event.category}
                         </span>
                       </div>
@@ -307,7 +307,7 @@ export default function Home() {
                     (index + 3) * 100
                   } card-hover`}
                   style={{
-                    background: "rgba(255, 255, 255, 0.15)",
+                    background: "rgba(255, 255, 255, 0.25)",
                     backdropFilter: "blur(20px)",
                     WebkitBackdropFilter: "blur(20px)",
                     border: "1px solid rgba(255, 255, 255, 0.3)",
@@ -318,10 +318,10 @@ export default function Home() {
                   }}
                 >
                   <CardHeader className='pb-3'>
-                    <CardTitle className='text-glow text-xl text-white font-bold drop-shadow-md'>
+                    <CardTitle className='text-glow text-xl text-white font-bold text-shadow-lg'>
                       {event.title}
                     </CardTitle>
-                    <CardDescription className='text-white/90 leading-relaxed font-medium drop-shadow-sm'>
+                    <CardDescription className='text-white font-semibold leading-relaxed text-shadow-md'>
                       {event.description}
                     </CardDescription>
                   </CardHeader>
@@ -331,7 +331,7 @@ export default function Home() {
                         <span className='text-blue-200 icon-bounce text-lg drop-shadow-sm'>
                           📅
                         </span>
-                        <span className='text-sm text-white/95 font-medium drop-shadow-sm'>
+                        <span className='text-sm text-white font-semibold text-shadow-sm'>
                           {event.date}
                         </span>
                       </div>
@@ -339,7 +339,7 @@ export default function Home() {
                         <span className='text-blue-200 icon-bounce text-lg drop-shadow-sm'>
                           🕒
                         </span>
-                        <span className='text-sm text-white/95 font-medium drop-shadow-sm'>
+                        <span className='text-sm text-white font-semibold text-shadow-sm'>
                           {event.time}
                         </span>
                       </div>
@@ -347,7 +347,7 @@ export default function Home() {
                         <span className='text-blue-200 icon-bounce text-lg drop-shadow-sm'>
                           📍
                         </span>
-                        <span className='text-sm text-white/95 font-medium drop-shadow-sm'>
+                        <span className='text-sm text-white font-semibold text-shadow-sm'>
                           {event.location}
                         </span>
                       </div>
@@ -355,7 +355,7 @@ export default function Home() {
                         <span className='text-orange-600 icon-bounce text-lg'>
                           ⏰
                         </span>
-                        <span className='text-sm text-white/95 font-medium drop-shadow-sm'>
+                        <span className='text-sm text-white font-semibold text-shadow-sm'>
                           Register by: {event.registrationDeadline}
                         </span>
                       </div>
@@ -363,12 +363,12 @@ export default function Home() {
                         <span className='text-green-600 icon-bounce text-lg'>
                           👥
                         </span>
-                        <span className='text-sm text-white/95 font-medium drop-shadow-sm'>
+                        <span className='text-sm text-white font-semibold text-shadow-sm'>
                           {event.capacity}
                         </span>
                       </div>
                       <div className='pt-2'>
-                        <span className='inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-white/20 text-white hover-scale glass-border drop-shadow-sm'>
+                        <span className='inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-white/30 text-white hover-scale glass-border text-shadow-sm'>
                           {event.category}
                         </span>
                       </div>
@@ -460,15 +460,15 @@ export default function Home() {
                 }}
               >
                 <CardHeader>
-                  <CardTitle className='text-center text-glow text-xl text-white font-bold drop-shadow-md'>
+                  <CardTitle className='text-center text-glow text-xl text-white font-bold text-shadow-lg'>
                     📧 Email
                   </CardTitle>
                 </CardHeader>
                 <CardContent className='text-center'>
-                  <p className='text-white/95 font-medium drop-shadow-sm'>
+                  <p className='text-white font-semibold text-shadow-sm'>
                     info@diversityclub.org
                   </p>
-                  <p className='text-sm text-white/90 mt-2 drop-shadow-sm'>
+                  <p className='text-sm text-white font-medium mt-2 text-shadow-sm'>
                     General inquiries
                   </p>
                 </CardContent>
