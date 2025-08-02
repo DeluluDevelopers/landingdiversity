@@ -600,7 +600,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className='text-center'>
                   <p className='text-white/95 font-medium drop-shadow-sm'>
-                    dsw office sharda
+                    DSW Office Sharda
                   </p>
                   <p className='text-sm text-white/90 mt-2 drop-shadow-sm'>
                     Sharda University
