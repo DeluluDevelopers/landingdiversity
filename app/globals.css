@@ -385,6 +385,12 @@
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
+/* Custom backdrop blur */
+.backdrop-blur-xs {
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
+
 /* Text animations */
 .text-glow {
   transition: text-shadow 0.3s ease;

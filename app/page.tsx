@@ -174,56 +174,282 @@ export default function Home() {
   };
 
   return (
-    <div className='min-h-screen'>
-      {/* Hero Section with Background Image */}
+    <div className='relative min-h-screen'>
+      {/* Fixed Background Image */}
       <div
-        className='min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat animate-fade-in relative'
-        style={{ backgroundImage: "url(/bg.webp)" }}
+        className='fixed inset-0 bg-cover bg-center bg-no-repeat z-0'
+        style={{ backgroundImage: "url(/ii.png)" }}
       >
-        <div className='absolute inset-0 bg-black/20'></div>
-        <div className='relative z-10 text-center text-white'>
-          <h1 className='text-6xl font-bold mb-6 animate-fade-in-up'>
-            Celebrating Diversity
-          </h1>
-          <p className='text-xl mb-8 animate-fade-in-up delay-200 max-w-2xl mx-auto'>
-            Building inclusive communities through understanding, respect, and
-            shared experiences
-          </p>
-          <button
-            onClick={scrollToEvents}
-            className='bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-3 rounded-lg hover:bg-white/30 transition-all duration-300 animate-fade-in-up delay-400 cursor-pointer'
-          >
-            Explore Our Events
-          </button>
-        </div>
+        <div className='absolute inset-0 bg-black/30'></div>
       </div>
 
-      {/* Our Events Section */}
-      <div
-        id='events-section'
-        className='min-h-screen bg-gradient-to-b from-background to-background/95 p-8'
-      >
-        <div className='max-w-7xl mx-auto'>
-          <div className='text-center mb-12 animate-fade-in-up'>
-            <h2 className='text-5xl font-bold text-foreground mb-4 text-glow'>
-              Our Events
-            </h2>
-            <p className='text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
-              Join us for exciting events that celebrate diversity, promote
-              inclusion, and bring our community together through meaningful
-              experiences.
+      {/* Scrollable Content Container */}
+      <div className='relative z-10'>
+        {/* Hero Section */}
+        <div className='min-h-screen flex items-center justify-center relative'>
+          <div className='text-center text-white'>
+            <h1 className='text-6xl font-bold mb-6 animate-fade-in-up'>
+              Celebrating Diversity
+            </h1>
+            <p className='text-xl mb-8 animate-fade-in-up delay-200 max-w-2xl mx-auto'>
+              Building inclusive communities through understanding, respect, and
+              shared experiences
             </p>
+            <button
+              onClick={scrollToEvents}
+              className='bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-3 rounded-lg hover:bg-white/30 transition-all duration-300 animate-fade-in-up delay-400 cursor-pointer'
+            >
+              Explore Our Events
+            </button>
           </div>
+        </div>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {events.map((event, index) => (
+        {/* Our Events Section */}
+        <div
+          id='events-section'
+          className='min-h-screen bg-white/10 backdrop-blur-xs p-8'
+        >
+          <div className='max-w-7xl mx-auto'>
+            <div className='text-center mb-12 animate-fade-in-up'>
+              <h2 className='text-5xl font-bold text-white mb-4 text-glow drop-shadow-lg'>
+                Our Events
+              </h2>
+              <p className='text-xl text-white/95 max-w-3xl mx-auto leading-relaxed font-semibold drop-shadow-md'>
+                Join us for exciting events that celebrate diversity, promote
+                inclusion, and bring our community together through meaningful
+                experiences.
+              </p>
+            </div>
+
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+              {events.map((event, index) => (
+                <Card
+                  key={event.id}
+                  className={`glass-card animate-fade-in-up delay-${
+                    (index + 1) * 100
+                  } card-hover`}
+                  style={{
+                    background: "rgba(255, 255, 255, 0.9)",
+                    backdropFilter: "blur(20px)",
+                    WebkitBackdropFilter: "blur(20px)",
+                    border: "1px solid rgba(255, 255, 255, 0.3)",
+                    borderRadius: "16px",
+                    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+                    position: "relative",
+                    overflow: "hidden",
+                  }}
+                >
+                  <CardHeader className='pb-3'>
+                    <CardTitle className='text-glow text-xl text-gray-800 font-bold'>
+                      {event.title}
+                    </CardTitle>
+                    <CardDescription className='text-gray-700 leading-relaxed font-medium'>
+                      {event.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className='space-y-3'>
+                      <div className='flex items-center gap-3'>
+                        <span className='text-blue-600 icon-bounce text-lg'>
+                          📅
+                        </span>
+                        <span className='text-sm text-gray-700 font-medium'>
+                          {event.date}
+                        </span>
+                      </div>
+                      <div className='flex items-center gap-3'>
+                        <span className='text-blue-600 icon-bounce text-lg'>
+                          🕒
+                        </span>
+                        <span className='text-sm text-gray-700 font-medium'>
+                          {event.time}
+                        </span>
+                      </div>
+                      <div className='flex items-center gap-3'>
+                        <span className='text-blue-600 icon-bounce text-lg'>
+                          📍
+                        </span>
+                        <span className='text-sm text-gray-700 font-medium'>
+                          {event.location}
+                        </span>
+                      </div>
+                      <div className='pt-2'>
+                        <span className='inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 hover-scale glass-border'>
+                          {event.category}
+                        </span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Upcoming Events Section */}
+        <div className='min-h-screen bg-white/10 backdrop-blur-xs p-8'>
+          <div className='max-w-7xl mx-auto'>
+            <div className='text-center mb-12 animate-fade-in-up delay-200'>
+              <h2 className='text-5xl font-bold text-white mb-4 text-glow'>
+                Upcoming Events
+              </h2>
+              <p className='text-xl text-white/95 max-w-3xl mx-auto leading-relaxed font-semibold'>
+                Discover exciting events on the horizon. Register early to
+                secure your spot and be part of our growing community.
+              </p>
+            </div>
+
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+              {upcomingEvents.map((event, index) => (
+                <Card
+                  key={event.id}
+                  className={`glass-card animate-fade-in-up delay-${
+                    (index + 3) * 100
+                  } card-hover`}
+                  style={{
+                    background: "rgba(255, 255, 255, 0.9)",
+                    backdropFilter: "blur(20px)",
+                    WebkitBackdropFilter: "blur(20px)",
+                    border: "1px solid rgba(255, 255, 255, 0.3)",
+                    borderRadius: "16px",
+                    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+                    position: "relative",
+                    overflow: "hidden",
+                  }}
+                >
+                  <CardHeader className='pb-3'>
+                    <CardTitle className='text-glow text-xl text-gray-800 font-bold'>
+                      {event.title}
+                    </CardTitle>
+                    <CardDescription className='text-gray-700 leading-relaxed font-medium'>
+                      {event.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className='space-y-3'>
+                      <div className='flex items-center gap-3'>
+                        <span className='text-blue-600 icon-bounce text-lg'>
+                          📅
+                        </span>
+                        <span className='text-sm text-gray-700 font-medium'>
+                          {event.date}
+                        </span>
+                      </div>
+                      <div className='flex items-center gap-3'>
+                        <span className='text-blue-600 icon-bounce text-lg'>
+                          🕒
+                        </span>
+                        <span className='text-sm text-gray-700 font-medium'>
+                          {event.time}
+                        </span>
+                      </div>
+                      <div className='flex items-center gap-3'>
+                        <span className='text-blue-600 icon-bounce text-lg'>
+                          📍
+                        </span>
+                        <span className='text-sm text-gray-700 font-medium'>
+                          {event.location}
+                        </span>
+                      </div>
+                      <div className='flex items-center gap-3'>
+                        <span className='text-orange-600 icon-bounce text-lg'>
+                          ⏰
+                        </span>
+                        <span className='text-sm text-gray-700 font-medium'>
+                          Register by: {event.registrationDeadline}
+                        </span>
+                      </div>
+                      <div className='flex items-center gap-3'>
+                        <span className='text-green-600 icon-bounce text-lg'>
+                          👥
+                        </span>
+                        <span className='text-sm text-gray-700 font-medium'>
+                          {event.capacity}
+                        </span>
+                      </div>
+                      <div className='pt-2'>
+                        <span className='inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 hover-scale glass-border'>
+                          {event.category}
+                        </span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Our Mission Section */}
+        <div className='bg-white/10 backdrop-blur-xs pt-12 pb-16 px-8'>
+          <div className='max-w-7xl mx-auto'>
+            <div className='text-center mb-12 animate-fade-in-up delay-400'>
+              <h2 className='text-5xl font-bold text-white mb-4 text-glow'>
+                Our Mission
+              </h2>
+              <p className='text-xl text-white/95 max-w-4xl mx-auto leading-relaxed font-semibold'>
+                We are dedicated to fostering an inclusive community where
+                diversity is celebrated, understood, and embraced. Our mission
+                is to create spaces where every individual feels valued, heard,
+                and empowered to contribute their unique perspectives.
+              </p>
+            </div>
+
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+              <div className='text-center animate-slide-in-left delay-500'>
+                <div className='text-6xl mb-4 animate-float'>🤝</div>
+                <h3 className='text-2xl font-bold text-white mb-3 text-glow'>
+                  Inclusivity
+                </h3>
+                <p className='text-white/95 leading-relaxed font-medium'>
+                  Creating welcoming environments where everyone feels they
+                  belong and can thrive regardless of their background or
+                  identity.
+                </p>
+              </div>
+              <div className='text-center animate-fade-in-up delay-600'>
+                <div className='text-6xl mb-4 animate-float'>🌍</div>
+                <h3 className='text-2xl font-bold text-white mb-3 text-glow'>
+                  Cultural Awareness
+                </h3>
+                <p className='text-white/95 leading-relaxed font-medium'>
+                  Promoting understanding and appreciation of different
+                  cultures, backgrounds, and perspectives through education and
+                  dialogue.
+                </p>
+              </div>
+              <div className='text-center animate-slide-in-right delay-500'>
+                <div className='text-6xl mb-4 animate-float'>💡</div>
+                <h3 className='text-2xl font-bold text-white mb-3 text-glow'>
+                  Education
+                </h3>
+                <p className='text-white/95 leading-relaxed font-medium'>
+                  Providing opportunities to learn, grow, and develop skills for
+                  inclusive leadership and community building.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Contact Us Section */}
+        <div className='bg-white/10 backdrop-blur-xs pt-12 pb-16 px-8'>
+          <div className='max-w-7xl mx-auto'>
+            <div className='text-center mb-12 animate-fade-in-up delay-600'>
+              <h2 className='text-5xl font-bold text-white mb-4 text-glow'>
+                Contact Us
+              </h2>
+              <p className='text-xl text-white/95 max-w-3xl mx-auto leading-relaxed font-semibold'>
+                Get in touch with us to learn more about our events, join our
+                community, or collaborate on diversity initiatives.
+              </p>
+            </div>
+
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
               <Card
-                key={event.id}
-                className={`glass-card animate-fade-in-up delay-${
-                  (index + 1) * 100
-                } card-hover`}
+                className='glass-card card-hover animate-fade-in-up delay-700'
                 style={{
-                  background: "rgba(255, 255, 255, 0.15)",
+                  background: "rgba(255, 255, 255, 0.9)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(255, 255, 255, 0.3)",
@@ -233,75 +459,25 @@ export default function Home() {
                   overflow: "hidden",
                 }}
               >
-                <CardHeader className='pb-3'>
-                  <CardTitle className='text-glow text-xl'>
-                    {event.title}
+                <CardHeader>
+                  <CardTitle className='text-center text-glow text-xl text-gray-800 font-bold'>
+                    📧 Email
                   </CardTitle>
-                  <CardDescription className='text-muted-foreground/80 leading-relaxed'>
-                    {event.description}
-                  </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className='space-y-3'>
-                    <div className='flex items-center gap-3'>
-                      <span className='text-blue-600 icon-bounce text-lg'>
-                        📅
-                      </span>
-                      <span className='text-sm text-muted-foreground font-medium'>
-                        {event.date}
-                      </span>
-                    </div>
-                    <div className='flex items-center gap-3'>
-                      <span className='text-blue-600 icon-bounce text-lg'>
-                        🕒
-                      </span>
-                      <span className='text-sm text-muted-foreground font-medium'>
-                        {event.time}
-                      </span>
-                    </div>
-                    <div className='flex items-center gap-3'>
-                      <span className='text-blue-600 icon-bounce text-lg'>
-                        📍
-                      </span>
-                      <span className='text-sm text-muted-foreground font-medium'>
-                        {event.location}
-                      </span>
-                    </div>
-                    <div className='pt-2'>
-                      <span className='inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-accent/20 text-accent-foreground hover-scale glass-border'>
-                        {event.category}
-                      </span>
-                    </div>
-                  </div>
+                <CardContent className='text-center'>
+                  <p className='text-gray-700 font-medium'>
+                    info@diversityclub.org
+                  </p>
+                  <p className='text-sm text-gray-600 mt-2'>
+                    General inquiries
+                  </p>
                 </CardContent>
               </Card>
-            ))}
-          </div>
-        </div>
-      </div>
 
-      {/* Upcoming Events Section */}
-      <div className='min-h-screen bg-gradient-to-b from-background/95 to-background p-8'>
-        <div className='max-w-7xl mx-auto'>
-          <div className='text-center mb-12 animate-fade-in-up delay-200'>
-            <h2 className='text-5xl font-bold text-foreground mb-4 text-glow'>
-              Upcoming Events
-            </h2>
-            <p className='text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
-              Discover exciting events on the horizon. Register early to secure
-              your spot and be part of our growing community.
-            </p>
-          </div>
-
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {upcomingEvents.map((event, index) => (
               <Card
-                key={event.id}
-                className={`glass-card animate-fade-in-up delay-${
-                  (index + 3) * 100
-                } card-hover`}
+                className='glass-card card-hover animate-fade-in-up delay-800'
                 style={{
-                  background: "rgba(255, 255, 255, 0.15)",
+                  background: "rgba(255, 255, 255, 0.9)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(255, 255, 255, 0.3)",
@@ -311,247 +487,72 @@ export default function Home() {
                   overflow: "hidden",
                 }}
               >
-                <CardHeader className='pb-3'>
-                  <CardTitle className='text-glow text-xl'>
-                    {event.title}
+                <CardHeader>
+                  <CardTitle className='text-center text-glow text-xl text-gray-800 font-bold'>
+                    📱 Phone
                   </CardTitle>
-                  <CardDescription className='text-muted-foreground/80 leading-relaxed'>
-                    {event.description}
-                  </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className='space-y-3'>
-                    <div className='flex items-center gap-3'>
-                      <span className='text-blue-600 icon-bounce text-lg'>
-                        📅
-                      </span>
-                      <span className='text-sm text-muted-foreground font-medium'>
-                        {event.date}
-                      </span>
-                    </div>
-                    <div className='flex items-center gap-3'>
-                      <span className='text-blue-600 icon-bounce text-lg'>
-                        🕒
-                      </span>
-                      <span className='text-sm text-muted-foreground font-medium'>
-                        {event.time}
-                      </span>
-                    </div>
-                    <div className='flex items-center gap-3'>
-                      <span className='text-blue-600 icon-bounce text-lg'>
-                        📍
-                      </span>
-                      <span className='text-sm text-muted-foreground font-medium'>
-                        {event.location}
-                      </span>
-                    </div>
-                    <div className='flex items-center gap-3'>
-                      <span className='text-orange-600 icon-bounce text-lg'>
-                        ⏰
-                      </span>
-                      <span className='text-sm text-muted-foreground font-medium'>
-                        Register by: {event.registrationDeadline}
-                      </span>
-                    </div>
-                    <div className='flex items-center gap-3'>
-                      <span className='text-green-600 icon-bounce text-lg'>
-                        👥
-                      </span>
-                      <span className='text-sm text-muted-foreground font-medium'>
-                        {event.capacity}
-                      </span>
-                    </div>
-                    <div className='pt-2'>
-                      <span className='inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-accent/20 text-accent-foreground hover-scale glass-border'>
-                        {event.category}
-                      </span>
-                    </div>
-                  </div>
+                <CardContent className='text-center'>
+                  <p className='text-gray-700 font-medium'>+1 (555) 123-4567</p>
+                  <p className='text-sm text-gray-600 mt-2'>Mon-Fri 9AM-5PM</p>
                 </CardContent>
               </Card>
-            ))}
-          </div>
-        </div>
-      </div>
 
-      {/* Our Mission Section */}
-      <div className='bg-gradient-to-b from-background to-background/90 pt-12 pb-16 px-8'>
-        <div className='max-w-7xl mx-auto'>
-          <div className='text-center mb-12 animate-fade-in-up delay-400'>
-            <h2 className='text-5xl font-bold text-foreground mb-4 text-glow'>
-              Our Mission
-            </h2>
-            <p className='text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed'>
-              We are dedicated to fostering an inclusive community where
-              diversity is celebrated, understood, and embraced. Our mission is
-              to create spaces where every individual feels valued, heard, and
-              empowered to contribute their unique perspectives.
-            </p>
-          </div>
+              <Card
+                className='glass-card card-hover animate-fade-in-up delay-900'
+                style={{
+                  background: "rgba(255, 255, 255, 0.9)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  border: "1px solid rgba(255, 255, 255, 0.3)",
+                  borderRadius: "16px",
+                  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+                  position: "relative",
+                  overflow: "hidden",
+                }}
+              >
+                <CardHeader>
+                  <CardTitle className='text-center text-glow text-xl text-gray-800 font-bold'>
+                    📍 Address
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className='text-center'>
+                  <p className='text-gray-700 font-medium'>
+                    123 Diversity Street
+                  </p>
+                  <p className='text-gray-700 font-medium'>Community Center</p>
+                  <p className='text-sm text-gray-600 mt-2'>
+                    City, State 12345
+                  </p>
+                </CardContent>
+              </Card>
 
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
-            <div className='text-center animate-slide-in-left delay-500'>
-              <div className='text-6xl mb-4 animate-float'>🤝</div>
-              <h3 className='text-2xl font-bold text-foreground mb-3 text-glow'>
-                Inclusivity
-              </h3>
-              <p className='text-muted-foreground leading-relaxed'>
-                Creating welcoming environments where everyone feels they belong
-                and can thrive regardless of their background or identity.
-              </p>
+              <Card
+                className='glass-card card-hover animate-fade-in-up delay-1000'
+                style={{
+                  background: "rgba(255, 255, 255, 0.9)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  border: "1px solid rgba(255, 255, 255, 0.3)",
+                  borderRadius: "16px",
+                  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+                  position: "relative",
+                  overflow: "hidden",
+                }}
+              >
+                <CardHeader>
+                  <CardTitle className='text-center text-glow text-xl text-gray-800 font-bold'>
+                    🌐 Social Media
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className='text-center'>
+                  <p className='text-gray-700 font-medium'>@DiversityClub</p>
+                  <p className='text-sm text-gray-600 mt-2'>
+                    Follow us for updates
+                  </p>
+                </CardContent>
+              </Card>
             </div>
-            <div className='text-center animate-fade-in-up delay-600'>
-              <div className='text-6xl mb-4 animate-float'>🌍</div>
-              <h3 className='text-2xl font-bold text-foreground mb-3 text-glow'>
-                Cultural Awareness
-              </h3>
-              <p className='text-muted-foreground leading-relaxed'>
-                Promoting understanding and appreciation of different cultures,
-                backgrounds, and perspectives through education and dialogue.
-              </p>
-            </div>
-            <div className='text-center animate-slide-in-right delay-500'>
-              <div className='text-6xl mb-4 animate-float'>💡</div>
-              <h3 className='text-2xl font-bold text-foreground mb-3 text-glow'>
-                Education
-              </h3>
-              <p className='text-muted-foreground leading-relaxed'>
-                Providing opportunities to learn, grow, and develop skills for
-                inclusive leadership and community building.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Contact Us Section */}
-      <div className='bg-gradient-to-b from-background/90 to-background pt-12 pb-16 px-8'>
-        <div className='max-w-7xl mx-auto'>
-          <div className='text-center mb-12 animate-fade-in-up delay-600'>
-            <h2 className='text-5xl font-bold text-foreground mb-4 text-glow'>
-              Contact Us
-            </h2>
-            <p className='text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
-              Get in touch with us to learn more about our events, join our
-              community, or collaborate on diversity initiatives.
-            </p>
-          </div>
-
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
-            <Card
-              className='glass-card card-hover animate-fade-in-up delay-700'
-              style={{
-                background: "rgba(255, 255, 255, 0.15)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-                border: "1px solid rgba(255, 255, 255, 0.3)",
-                borderRadius: "16px",
-                boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
-                position: "relative",
-                overflow: "hidden",
-              }}
-            >
-              <CardHeader>
-                <CardTitle className='text-center text-glow text-xl'>
-                  📧 Email
-                </CardTitle>
-              </CardHeader>
-              <CardContent className='text-center'>
-                <p className='text-muted-foreground font-medium'>
-                  info@diversityclub.org
-                </p>
-                <p className='text-sm text-muted-foreground mt-2'>
-                  General inquiries
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card
-              className='glass-card card-hover animate-fade-in-up delay-800'
-              style={{
-                background: "rgba(255, 255, 255, 0.15)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-                border: "1px solid rgba(255, 255, 255, 0.3)",
-                borderRadius: "16px",
-                boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
-                position: "relative",
-                overflow: "hidden",
-              }}
-            >
-              <CardHeader>
-                <CardTitle className='text-center text-glow text-xl'>
-                  📱 Phone
-                </CardTitle>
-              </CardHeader>
-              <CardContent className='text-center'>
-                <p className='text-muted-foreground font-medium'>
-                  +1 (555) 123-4567
-                </p>
-                <p className='text-sm text-muted-foreground mt-2'>
-                  Mon-Fri 9AM-5PM
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card
-              className='glass-card card-hover animate-fade-in-up delay-900'
-              style={{
-                background: "rgba(255, 255, 255, 0.15)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-                border: "1px solid rgba(255, 255, 255, 0.3)",
-                borderRadius: "16px",
-                boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
-                position: "relative",
-                overflow: "hidden",
-              }}
-            >
-              <CardHeader>
-                <CardTitle className='text-center text-glow text-xl'>
-                  📍 Address
-                </CardTitle>
-              </CardHeader>
-              <CardContent className='text-center'>
-                <p className='text-muted-foreground font-medium'>
-                  123 Diversity Street
-                </p>
-                <p className='text-muted-foreground font-medium'>
-                  Community Center
-                </p>
-                <p className='text-sm text-muted-foreground mt-2'>
-                  City, State 12345
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card
-              className='glass-card card-hover animate-fade-in-up delay-1000'
-              style={{
-                background: "rgba(255, 255, 255, 0.15)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-                border: "1px solid rgba(255, 255, 255, 0.3)",
-                borderRadius: "16px",
-                boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
-                position: "relative",
-                overflow: "hidden",
-              }}
-            >
-              <CardHeader>
-                <CardTitle className='text-center text-glow text-xl'>
-                  🌐 Social Media
-                </CardTitle>
-              </CardHeader>
-              <CardContent className='text-center'>
-                <p className='text-muted-foreground font-medium'>
-                  @DiversityClub
-                </p>
-                <p className='text-sm text-muted-foreground mt-2'>
-                  Follow us for updates
-                </p>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>
