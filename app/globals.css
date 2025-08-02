@@ -419,12 +419,14 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
 
 .animate-scroll-left {
-  animation: scrollLeft 20s linear infinite;
+  animation: scrollLeft 40s linear infinite;
+  width: 200%;
+  display: flex;
 }
 
 .animate-scroll-left.paused {

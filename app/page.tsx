@@ -408,51 +408,56 @@ export default function Home() {
               onMouseEnter={() => handleCarouselHover(true)}
               onMouseLeave={() => handleCarouselHover(false)}
             >
-              <div className='flex animate-scroll-left'>
-                {[1, 2, 3, 8, 4, 5, 6, 7].map((imageNum) => (
-                  <div key={imageNum} className='flex-shrink-0 mx-4'>
-                    <div
-                      className='w-80 h-64 rounded-lg overflow-hidden glass-card hover:scale-150 transition-transform duration-300'
-                      style={{
-                        background: "rgba(255, 255, 255, 0.15)",
-                        backdropFilter: "blur(20px)",
-                        WebkitBackdropFilter: "blur(20px)",
-                        border: "1px solid rgba(255, 255, 255, 0.3)",
-                        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
-                      }}
-                    >
-                      <img
-                        src={`/${imageNum}.jpg`}
-                        alt={`Gallery Image ${imageNum}`}
-                        className='w-full h-full object-cover'
-                      />
+              <div className='animate-scroll-left'>
+                {/* First set of images */}
+                <div className='flex'>
+                  {[1, 2, 3, 4, 5, 6, 7].map((imageNum) => (
+                    <div key={imageNum} className='flex-shrink-0 mx-4'>
+                      <div
+                        className='w-80 h-64 rounded-lg overflow-hidden glass-card hover:scale-150 transition-transform duration-300'
+                        style={{
+                          background: "rgba(255, 255, 255, 0.15)",
+                          backdropFilter: "blur(20px)",
+                          WebkitBackdropFilter: "blur(20px)",
+                          border: "1px solid rgba(255, 255, 255, 0.3)",
+                          boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+                        }}
+                      >
+                        <img
+                          src={`/${imageNum}.jpg`}
+                          alt={`Gallery Image ${imageNum}`}
+                          className='w-full h-full object-cover'
+                        />
+                      </div>
                     </div>
-                  </div>
-                ))}
-                {/* Duplicate images for seamless loop */}
-                {[1, 2, 3, 4, 5, 6, 7].map((imageNum) => (
-                  <div
-                    key={`duplicate-${imageNum}`}
-                    className='flex-shrink-0 mx-4'
-                  >
+                  ))}
+                </div>
+                {/* Second set of images for seamless loop */}
+                <div className='flex'>
+                  {[1, 2, 3, 4, 5, 6, 7].map((imageNum) => (
                     <div
-                      className='w-80 h-64 rounded-lg overflow-hidden glass-card hover:scale-150 transition-transform duration-300'
-                      style={{
-                        background: "rgba(255, 255, 255, 0.15)",
-                        backdropFilter: "blur(20px)",
-                        WebkitBackdropFilter: "blur(20px)",
-                        border: "1px solid rgba(255, 255, 255, 0.3)",
-                        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
-                      }}
+                      key={`duplicate-${imageNum}`}
+                      className='flex-shrink-0 mx-4'
                     >
-                      <img
-                        src={`/${imageNum}.jpg`}
-                        alt={`Gallery Image ${imageNum}`}
-                        className='w-full h-full object-cover'
-                      />
+                      <div
+                        className='w-80 h-64 rounded-lg overflow-hidden glass-card hover:scale-150 transition-transform duration-300'
+                        style={{
+                          background: "rgba(255, 255, 255, 0.15)",
+                          backdropFilter: "blur(20px)",
+                          WebkitBackdropFilter: "blur(20px)",
+                          border: "1px solid rgba(255, 255, 255, 0.3)",
+                          boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+                        }}
+                      >
+                        <img
+                          src={`/${imageNum}.jpg`}
+                          alt={`Gallery Image ${imageNum}`}
+                          className='w-full h-full object-cover'
+                        />
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
