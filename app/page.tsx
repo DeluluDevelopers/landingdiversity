@@ -178,7 +178,7 @@ export default function Home() {
       {/* Fixed Background Image */}
       <div
         className='fixed inset-0 bg-cover bg-center bg-no-repeat z-0'
-        style={{ backgroundImage: "url(/ii.png)" }}
+        style={{ backgroundImage: "url(/ki.png)" }}
       >
         <div className='absolute inset-0 bg-black/30'></div>
       </div>
@@ -229,7 +229,7 @@ export default function Home() {
                     (index + 1) * 100
                   } card-hover`}
                   style={{
-                    background: "rgba(255, 255, 255, 0.9)",
+                    background: "rgba(255, 255, 255, 0.15)",
                     backdropFilter: "blur(20px)",
                     WebkitBackdropFilter: "blur(20px)",
                     border: "1px solid rgba(255, 255, 255, 0.3)",
@@ -240,41 +240,41 @@ export default function Home() {
                   }}
                 >
                   <CardHeader className='pb-3'>
-                    <CardTitle className='text-glow text-xl text-gray-800 font-bold'>
+                    <CardTitle className='text-glow text-xl text-white font-bold drop-shadow-md'>
                       {event.title}
                     </CardTitle>
-                    <CardDescription className='text-gray-700 leading-relaxed font-medium'>
+                    <CardDescription className='text-white/90 leading-relaxed font-medium drop-shadow-sm'>
                       {event.description}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className='space-y-3'>
                       <div className='flex items-center gap-3'>
-                        <span className='text-blue-600 icon-bounce text-lg'>
+                        <span className='text-blue-200 icon-bounce text-lg drop-shadow-sm'>
                           📅
                         </span>
-                        <span className='text-sm text-gray-700 font-medium'>
+                        <span className='text-sm text-white/95 font-medium drop-shadow-sm'>
                           {event.date}
                         </span>
                       </div>
                       <div className='flex items-center gap-3'>
-                        <span className='text-blue-600 icon-bounce text-lg'>
+                        <span className='text-blue-200 icon-bounce text-lg drop-shadow-sm'>
                           🕒
                         </span>
-                        <span className='text-sm text-gray-700 font-medium'>
+                        <span className='text-sm text-white/95 font-medium drop-shadow-sm'>
                           {event.time}
                         </span>
                       </div>
                       <div className='flex items-center gap-3'>
-                        <span className='text-blue-600 icon-bounce text-lg'>
+                        <span className='text-blue-200 icon-bounce text-lg drop-shadow-sm'>
                           📍
                         </span>
-                        <span className='text-sm text-gray-700 font-medium'>
+                        <span className='text-sm text-white/95 font-medium drop-shadow-sm'>
                           {event.location}
                         </span>
                       </div>
                       <div className='pt-2'>
-                        <span className='inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 hover-scale glass-border'>
+                        <span className='inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-white/20 text-white hover-scale glass-border drop-shadow-sm'>
                           {event.category}
                         </span>
                       </div>
@@ -307,7 +307,7 @@ export default function Home() {
                     (index + 3) * 100
                   } card-hover`}
                   style={{
-                    background: "rgba(255, 255, 255, 0.9)",
+                    background: "rgba(255, 255, 255, 0.15)",
                     backdropFilter: "blur(20px)",
                     WebkitBackdropFilter: "blur(20px)",
                     border: "1px solid rgba(255, 255, 255, 0.3)",
@@ -318,36 +318,36 @@ export default function Home() {
                   }}
                 >
                   <CardHeader className='pb-3'>
-                    <CardTitle className='text-glow text-xl text-gray-800 font-bold'>
+                    <CardTitle className='text-glow text-xl text-white font-bold drop-shadow-md'>
                       {event.title}
                     </CardTitle>
-                    <CardDescription className='text-gray-700 leading-relaxed font-medium'>
+                    <CardDescription className='text-white/90 leading-relaxed font-medium drop-shadow-sm'>
                       {event.description}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className='space-y-3'>
                       <div className='flex items-center gap-3'>
-                        <span className='text-blue-600 icon-bounce text-lg'>
+                        <span className='text-blue-200 icon-bounce text-lg drop-shadow-sm'>
                           📅
                         </span>
-                        <span className='text-sm text-gray-700 font-medium'>
+                        <span className='text-sm text-white/95 font-medium drop-shadow-sm'>
                           {event.date}
                         </span>
                       </div>
                       <div className='flex items-center gap-3'>
-                        <span className='text-blue-600 icon-bounce text-lg'>
+                        <span className='text-blue-200 icon-bounce text-lg drop-shadow-sm'>
                           🕒
                         </span>
-                        <span className='text-sm text-gray-700 font-medium'>
+                        <span className='text-sm text-white/95 font-medium drop-shadow-sm'>
                           {event.time}
                         </span>
                       </div>
                       <div className='flex items-center gap-3'>
-                        <span className='text-blue-600 icon-bounce text-lg'>
+                        <span className='text-blue-200 icon-bounce text-lg drop-shadow-sm'>
                           📍
                         </span>
-                        <span className='text-sm text-gray-700 font-medium'>
+                        <span className='text-sm text-white/95 font-medium drop-shadow-sm'>
                           {event.location}
                         </span>
                       </div>
@@ -355,7 +355,7 @@ export default function Home() {
                         <span className='text-orange-600 icon-bounce text-lg'>
                           ⏰
                         </span>
-                        <span className='text-sm text-gray-700 font-medium'>
+                        <span className='text-sm text-white/95 font-medium drop-shadow-sm'>
                           Register by: {event.registrationDeadline}
                         </span>
                       </div>
@@ -363,12 +363,12 @@ export default function Home() {
                         <span className='text-green-600 icon-bounce text-lg'>
                           👥
                         </span>
-                        <span className='text-sm text-gray-700 font-medium'>
+                        <span className='text-sm text-white/95 font-medium drop-shadow-sm'>
                           {event.capacity}
                         </span>
                       </div>
                       <div className='pt-2'>
-                        <span className='inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 hover-scale glass-border'>
+                        <span className='inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-white/20 text-white hover-scale glass-border drop-shadow-sm'>
                           {event.category}
                         </span>
                       </div>
@@ -449,7 +449,7 @@ export default function Home() {
               <Card
                 className='glass-card card-hover animate-fade-in-up delay-700'
                 style={{
-                  background: "rgba(255, 255, 255, 0.9)",
+                  background: "rgba(255, 255, 255, 0.15)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(255, 255, 255, 0.3)",
@@ -460,15 +460,15 @@ export default function Home() {
                 }}
               >
                 <CardHeader>
-                  <CardTitle className='text-center text-glow text-xl text-gray-800 font-bold'>
+                  <CardTitle className='text-center text-glow text-xl text-white font-bold drop-shadow-md'>
                     📧 Email
                   </CardTitle>
                 </CardHeader>
                 <CardContent className='text-center'>
-                  <p className='text-gray-700 font-medium'>
+                  <p className='text-white/95 font-medium drop-shadow-sm'>
                     info@diversityclub.org
                   </p>
-                  <p className='text-sm text-gray-600 mt-2'>
+                  <p className='text-sm text-white/90 mt-2 drop-shadow-sm'>
                     General inquiries
                   </p>
                 </CardContent>
@@ -477,7 +477,7 @@ export default function Home() {
               <Card
                 className='glass-card card-hover animate-fade-in-up delay-800'
                 style={{
-                  background: "rgba(255, 255, 255, 0.9)",
+                  background: "rgba(255, 255, 255, 0.15)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(255, 255, 255, 0.3)",
@@ -488,20 +488,24 @@ export default function Home() {
                 }}
               >
                 <CardHeader>
-                  <CardTitle className='text-center text-glow text-xl text-gray-800 font-bold'>
+                  <CardTitle className='text-center text-glow text-xl text-white font-bold drop-shadow-md'>
                     📱 Phone
                   </CardTitle>
                 </CardHeader>
                 <CardContent className='text-center'>
-                  <p className='text-gray-700 font-medium'>+1 (555) 123-4567</p>
-                  <p className='text-sm text-gray-600 mt-2'>Mon-Fri 9AM-5PM</p>
+                  <p className='text-white/95 font-medium drop-shadow-sm'>
+                    +1 (555) 123-4567
+                  </p>
+                  <p className='text-sm text-white/90 mt-2 drop-shadow-sm'>
+                    Mon-Fri 9AM-5PM
+                  </p>
                 </CardContent>
               </Card>
 
               <Card
                 className='glass-card card-hover animate-fade-in-up delay-900'
                 style={{
-                  background: "rgba(255, 255, 255, 0.9)",
+                  background: "rgba(255, 255, 255, 0.15)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(255, 255, 255, 0.3)",
@@ -512,16 +516,18 @@ export default function Home() {
                 }}
               >
                 <CardHeader>
-                  <CardTitle className='text-center text-glow text-xl text-gray-800 font-bold'>
+                  <CardTitle className='text-center text-glow text-xl text-white font-bold drop-shadow-md'>
                     📍 Address
                   </CardTitle>
                 </CardHeader>
                 <CardContent className='text-center'>
-                  <p className='text-gray-700 font-medium'>
+                  <p className='text-white/95 font-medium drop-shadow-sm'>
                     123 Diversity Street
                   </p>
-                  <p className='text-gray-700 font-medium'>Community Center</p>
-                  <p className='text-sm text-gray-600 mt-2'>
+                  <p className='text-white/95 font-medium drop-shadow-sm'>
+                    Community Center
+                  </p>
+                  <p className='text-sm text-white/90 mt-2 drop-shadow-sm'>
                     City, State 12345
                   </p>
                 </CardContent>
@@ -530,7 +536,7 @@ export default function Home() {
               <Card
                 className='glass-card card-hover animate-fade-in-up delay-1000'
                 style={{
-                  background: "rgba(255, 255, 255, 0.9)",
+                  background: "rgba(255, 255, 255, 0.15)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(255, 255, 255, 0.3)",
@@ -541,13 +547,15 @@ export default function Home() {
                 }}
               >
                 <CardHeader>
-                  <CardTitle className='text-center text-glow text-xl text-gray-800 font-bold'>
+                  <CardTitle className='text-center text-glow text-xl text-white font-bold drop-shadow-md'>
                     🌐 Social Media
                   </CardTitle>
                 </CardHeader>
                 <CardContent className='text-center'>
-                  <p className='text-gray-700 font-medium'>@DiversityClub</p>
-                  <p className='text-sm text-gray-600 mt-2'>
+                  <p className='text-white/95 font-medium drop-shadow-sm'>
+                    @DiversityClub
+                  </p>
+                  <p className='text-sm text-white/90 mt-2 drop-shadow-sm'>
                     Follow us for updates
                   </p>
                 </CardContent>
