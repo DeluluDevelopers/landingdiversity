@@ -173,6 +173,17 @@ export default function Home() {
     }
   };
 
+  const handleCarouselHover = (isHovering: boolean) => {
+    const carousel = document.querySelector(".animate-scroll-left");
+    if (carousel) {
+      if (isHovering) {
+        carousel.classList.add("paused");
+      } else {
+        carousel.classList.remove("paused");
+      }
+    }
+  };
+
   return (
     <div className='relative min-h-screen'>
       {/* Fixed Background Image */}
@@ -380,6 +391,73 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Image Carousel Section */}
+        <div className='bg-white/10 backdrop-blur-xs pt-12 pb-16 px-8'>
+          <div className='max-w-7xl mx-auto'>
+            <div className='text-center mb-12 animate-fade-in-up delay-300'>
+              <h2 className='text-5xl font-bold text-white mb-4 text-glow'>
+                Gallery
+              </h2>
+              <p className='text-xl text-white/95 max-w-3xl mx-auto leading-relaxed font-semibold'>
+                Take a look at our past events and memorable moments
+              </p>
+            </div>
+
+            <div
+              className='relative overflow-hidden'
+              onMouseEnter={() => handleCarouselHover(true)}
+              onMouseLeave={() => handleCarouselHover(false)}
+            >
+              <div className='flex animate-scroll-left'>
+                {[1, 2, 3, 4, 5, 6, 7].map((imageNum) => (
+                  <div key={imageNum} className='flex-shrink-0 mx-4'>
+                    <div
+                      className='w-80 h-64 rounded-lg overflow-hidden glass-card hover:scale-150 transition-transform duration-300'
+                      style={{
+                        background: "rgba(255, 255, 255, 0.15)",
+                        backdropFilter: "blur(20px)",
+                        WebkitBackdropFilter: "blur(20px)",
+                        border: "1px solid rgba(255, 255, 255, 0.3)",
+                        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+                      }}
+                    >
+                      <img
+                        src={`/${imageNum}.jpg`}
+                        alt={`Gallery Image ${imageNum}`}
+                        className='w-full h-full object-cover'
+                      />
+                    </div>
+                  </div>
+                ))}
+                {/* Duplicate images for seamless loop */}
+                {[1, 2, 3, 4, 5, 6, 7].map((imageNum) => (
+                  <div
+                    key={`duplicate-${imageNum}`}
+                    className='flex-shrink-0 mx-4'
+                  >
+                    <div
+                      className='w-80 h-64 rounded-lg overflow-hidden glass-card hover:scale-150 transition-transform duration-300'
+                      style={{
+                        background: "rgba(255, 255, 255, 0.15)",
+                        backdropFilter: "blur(20px)",
+                        WebkitBackdropFilter: "blur(20px)",
+                        border: "1px solid rgba(255, 255, 255, 0.3)",
+                        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+                      }}
+                    >
+                      <img
+                        src={`/${imageNum}.jpg`}
+                        alt={`Gallery Image ${imageNum}`}
+                        className='w-full h-full object-cover'
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Our Mission Section */}
         <div className='bg-white/10 backdrop-blur-xs pt-12 pb-16 px-8'>
           <div className='max-w-7xl mx-auto'>
@@ -494,7 +572,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className='text-center'>
                   <p className='text-white/95 font-medium drop-shadow-sm'>
-                    +1 (555) 123-4567
+                    +91 81261 33363
                   </p>
                   <p className='text-sm text-white/90 mt-2 drop-shadow-sm'>
                     Mon-Fri 9AM-5PM
@@ -522,13 +600,10 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className='text-center'>
                   <p className='text-white/95 font-medium drop-shadow-sm'>
-                    123 Diversity Street
-                  </p>
-                  <p className='text-white/95 font-medium drop-shadow-sm'>
-                    Community Center
+                    dsw office sharda
                   </p>
                   <p className='text-sm text-white/90 mt-2 drop-shadow-sm'>
-                    City, State 12345
+                    Sharda University
                   </p>
                 </CardContent>
               </Card>
@@ -553,10 +628,17 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className='text-center'>
                   <p className='text-white/95 font-medium drop-shadow-sm'>
-                    @DiversityClub
+                    @diversityclubsharda
                   </p>
                   <p className='text-sm text-white/90 mt-2 drop-shadow-sm'>
-                    Follow us for updates
+                    <a
+                      href='https://www.instagram.com/diversityclubsharda?igsh=dTRzbWgyaWkzYXJu'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='hover:text-blue-200 transition-colors'
+                    >
+                      Follow us on Instagram
+                    </a>
                   </p>
                 </CardContent>
               </Card>
