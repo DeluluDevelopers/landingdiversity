@@ -409,7 +409,7 @@ export default function Home() {
               onMouseLeave={() => handleCarouselHover(false)}
             >
               <div className='flex animate-scroll-left'>
-                {[1, 2, 3, 4, 5, 6, 7].map((imageNum) => (
+                {[1, 2, 3, 8, 4, 5, 6, 7].map((imageNum) => (
                   <div key={imageNum} className='flex-shrink-0 mx-4'>
                     <div
                       className='w-80 h-64 rounded-lg overflow-hidden glass-card hover:scale-150 transition-transform duration-300'
